@@ -61,9 +61,9 @@ p6df::modules::figma::prompt::mod() {
   if p6_string_blank_NOT "$profile"; then
     str="figma:\t\t  ${profile}:"
     if p6_string_blank_NOT "$api_token"; then
-      str=$(p6_string_append "$str" "api" "/")
+      str=$(p6_string_append "$str" "api" " ")
     fi
-    if p6_string_blank_NOT "$token"; then
+    if p6_string_blank_NOT "$token" && [ "$token" != "$api_token" ]; then
       str=$(p6_string_append "$str" "token" "/")
     fi
   fi

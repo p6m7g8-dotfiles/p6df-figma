@@ -44,6 +44,36 @@ p6df::modules::figma::aliases::init() {
 ######################################################################
 #<
 #
+# Function: str str = p6df::modules::figma::prompt::mod()
+#
+#  Returns:
+#	str - str
+#
+#  Environment:	 FIGMA_API_TOKEN FIGMA_TOKEN P6_DFZ_PROFILE_FIGMA
+#>
+######################################################################
+p6df::modules::figma::prompt::mod() {
+  local str=""
+  local profile="${P6_DFZ_PROFILE_FIGMA:-}"
+  local api_token="${FIGMA_API_TOKEN:-}"
+  local token="${FIGMA_TOKEN:-}"
+
+  if p6_string_blank_NOT "$profile"; then
+    str="figma:\t\t  ${profile}:"
+    if p6_string_blank_NOT "$api_token"; then
+      str=$(p6_string_append "$str" "api" "/")
+    fi
+    if p6_string_blank_NOT "$token"; then
+      str=$(p6_string_append "$str" "token" "/")
+    fi
+  fi
+
+  p6_return_str "$str"
+}
+
+######################################################################
+#<
+#
 # Function: p6df::modules::figma::profile::on(profile, env_or_token)
 #
 #  Args:

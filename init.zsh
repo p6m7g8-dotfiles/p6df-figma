@@ -44,18 +44,24 @@ p6df::modules::figma::aliases::init() {
 ######################################################################
 #<
 #
-# Function: p6df::modules::figma::profile::on(profile, token)
+# Function: p6df::modules::figma::profile::on(profile, env_or_token)
 #
 #  Args:
 #	profile -
-#	token -
+#	env_or_token -
 #
 #  Environment:	 FIGMA_API_TOKEN FIGMA_TOKEN P6_DFZ_PROFILE_FIGMA
 #>
 ######################################################################
 p6df::modules::figma::profile::on() {
   local profile="$1"
-  local token="$2"
+  local env_or_token="$2"
+
+  local token="$env_or_token"
+  if p6_string_match_regex "$env_or_token" '(^|[[:space:]])export[[:space:]]+FIGMA'; then
+    p6_run_code "$env_or_token"
+    token="${FIGMA_API_TOKEN:-${FIGMA_TOKEN:-}}"
+  fi
 
   p6_env_export "P6_DFZ_PROFILE_FIGMA" "$profile"
   p6_env_export "FIGMA_API_TOKEN" "$token"

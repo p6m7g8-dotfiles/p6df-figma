@@ -16,7 +16,7 @@ Install and configure Figma CLI tools for shell and Codex usage.
 - `p6df::modules::figma::deps()`
 - `p6df::modules::figma::langs()`
 - `p6df::modules::figma::profile::off()`
-- `p6df::modules::figma::profile::on(profile, token)`
+- `p6df::modules::figma::profile::on(profile, env_or_token)`
 
 ## ENV
 

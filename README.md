@@ -18,8 +18,9 @@
 
 ## Summary
 
-p6df module for Figma: profile-based `FIGMA_TOKEN` management, export CLI,
-and MCP server (`figma-developer-mcp`) for AI-driven design access.
+p6df module for Figma: CLI tools (`@figma-export/cli`, `@figma/code-connect`),
+`FIGMA_API_KEY` profile support, and MCP server (`figma-mcp`) for AI-driven
+design file inspection and component access.
 
 ## Contributing
 

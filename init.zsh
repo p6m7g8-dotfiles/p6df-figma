@@ -35,7 +35,7 @@ p6df::modules::figma::langs() {
 ######################################################################
 p6df::modules::figma::mcp() {
 
-  p6_js_npm_global_install "figma-developer-mcp"
+  p6_js_npm_global_install "figma-mcp"
 
   p6_return_void
 }

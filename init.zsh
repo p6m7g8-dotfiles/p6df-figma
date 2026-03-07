@@ -22,6 +22,19 @@ p6df::modules::figma::deps() {
 p6df::modules::figma::langs() {
 
   p6_js_npm_global_install "@figma-export/cli"
+
+  p6_return_void
+}
+
+######################################################################
+#<
+#
+# Function: p6df::modules::figma::mcp()
+#
+#>
+######################################################################
+p6df::modules::figma::mcp() {
+
   p6_js_npm_global_install "figma-developer-mcp"
 
   p6_return_void

@@ -87,24 +87,22 @@ p6df::modules::figma::prompt::mod() {
 ######################################################################
 #<
 #
-# Function: p6df::modules::figma::profile::on(profile, env_or_token)
+# Function: p6df::modules::figma::profile::on(profile, code)
 #
 #  Args:
 #	profile -
-#	env_or_token -
+#	code -
 #
 #  Environment:	 FIGMA_API_TOKEN FIGMA_TOKEN P6_DFZ_PROFILE_FIGMA
 #>
 ######################################################################
 p6df::modules::figma::profile::on() {
   local profile="$1"
-  local env_or_token="$2"
+  local code="$2"
 
-  local token="$env_or_token"
-  if p6_string_match_regex "$env_or_token" '(^|[[:space:]])export[[:space:]]+FIGMA'; then
-    p6_run_code "$env_or_token"
-    token="${FIGMA_API_TOKEN:-${FIGMA_TOKEN:-}}"
-  fi
+  p6_run_code "$code"
+
+  local token="${FIGMA_API_TOKEN:-${FIGMA_TOKEN:-}}"
 
   p6_env_export "P6_DFZ_PROFILE_FIGMA" "$profile"
   p6_env_export "FIGMA_API_TOKEN" "$token"

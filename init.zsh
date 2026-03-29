@@ -37,6 +37,9 @@ p6df::modules::figma::mcp() {
 
   p6_js_npm_global_install "figma-mcp"
 
+  p6df::modules::anthropic::mcp::server::add "figma" "npx" "-y" "figma-mcp"
+  p6df::modules::openai::mcp::server::add "figma" "npx" "-y" "figma-mcp"
+
   p6_return_void
 }
 
@@ -67,9 +70,9 @@ p6df::modules::figma::aliases::init() {
 ######################################################################
 p6df::modules::figma::prompt::mod() {
   local str=""
-  local profile="${P6_DFZ_PROFILE_FIGMA:-}"
-  local api_token="${FIGMA_API_TOKEN:-}"
-  local token="${FIGMA_TOKEN:-}"
+  local profile="$P6_DFZ_PROFILE_FIGMA"
+  local api_token="$FIGMA_API_TOKEN"
+  local token="$FIGMA_TOKEN"
 
   if p6_string_blank_NOT "$profile"; then
     str="figma:\t\t  ${profile}:"
@@ -102,11 +105,7 @@ p6df::modules::figma::profile::on() {
 
   p6_run_code "$code"
 
-  local token="${FIGMA_API_TOKEN:-${FIGMA_TOKEN:-}}"
-
   p6_env_export "P6_DFZ_PROFILE_FIGMA" "$profile"
-  p6_env_export "FIGMA_API_TOKEN" "$token"
-  p6_env_export "FIGMA_TOKEN" "$token"
 
   p6_return_void
 }
@@ -114,16 +113,19 @@ p6df::modules::figma::profile::on() {
 ######################################################################
 #<
 #
-# Function: p6df::modules::figma::profile::off()
+# Function: p6df::modules::figma::profile::off(code)
+#
+#  Args:
+#	code - shell code block previously passed to profile::on
 #
 #  Environment:	 FIGMA_API_TOKEN FIGMA_TOKEN P6_DFZ_PROFILE_FIGMA
 #>
 ######################################################################
 p6df::modules::figma::profile::off() {
+  local code="$1"
 
+  p6_env_unset_from_code "$code"
   p6_env_export_un P6_DFZ_PROFILE_FIGMA
-  p6_env_export_un FIGMA_API_TOKEN
-  p6_env_export_un FIGMA_TOKEN
 
   p6_return_void
 }

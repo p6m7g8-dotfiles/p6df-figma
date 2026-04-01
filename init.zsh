@@ -72,5 +72,5 @@ p6df::modules::figma::aliases::init() {
 ######################################################################
 p6df::modules::figma::profile::mod() {
 
-  p6_return_words 'figma' '$FIGMA_API_TOKEN'
+  p6_return_words 'figma' "$"
 }

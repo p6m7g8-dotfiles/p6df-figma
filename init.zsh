@@ -15,7 +15,11 @@ p6df::modules::figma::deps() {
 ######################################################################
 #<
 #
-# Function: p6df::modules::figma::aliases::init()
+# Function: p6df::modules::figma::aliases::init(_module, _dir)
+#
+#  Args:
+#	_module -
+#	_dir -
 #
 #>
 ######################################################################
@@ -62,10 +66,10 @@ p6df::modules::figma::mcp() {
 ######################################################################
 #<
 #
-# Function: words figma $FIGMA_API_TOKEN = p6df::modules::figma::profile::mod()
+# Function: words figma = p6df::modules::figma::profile::mod()
 #
 #  Returns:
-#	words - figma $FIGMA_API_TOKEN
+#	words - figma
 #
 #  Environment:	 FIGMA_API_TOKEN
 #>

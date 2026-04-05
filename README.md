@@ -18,9 +18,7 @@
 
 ## Summary
 
-p6df module for Figma: CLI tools (`@figma-export/cli`, `@figma/code-connect`),
-`FIGMA_API_KEY` profile support, and MCP server (`figma-mcp`) for AI-driven
-design file inspection and component access.
+TODO: Add a short summary of this module.
 
 ## Contributing
 
@@ -42,16 +40,14 @@ design file inspection and component access.
 
 ##### p6df-figma/init.zsh
 
-- `p6df::modules::figma::aliases::init()`
+- `p6df::modules::figma::aliases::init(_module, _dir)`
+  - Args:
+    - _module
+    - _dir
 - `p6df::modules::figma::deps()`
 - `p6df::modules::figma::langs()`
 - `p6df::modules::figma::mcp()`
-- `p6df::modules::figma::profile::off()`
-- `p6df::modules::figma::profile::on(profile, env_or_token)`
-  - Args:
-    - profile
-    - env_or_token
-- `str str = p6df::modules::figma::prompt::mod()`
+- `words figma = p6df::modules::figma::profile::mod()`
 
 ## Hierarchy
 

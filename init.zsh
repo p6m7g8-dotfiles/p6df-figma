@@ -1,11 +1,23 @@
 # shellcheck shell=bash
 ######################################################################
+#<
+#
+# Function: p6df::modules::figma::deps()
+#
+#>
+######################################################################
 p6df::modules::figma::deps() {
   ModuleDeps=(
     p6m7g8-dotfiles/p6df-js
   )
 }
 
+######################################################################
+#<
+#
+# Function: p6df::modules::figma::aliases::init()
+#
+#>
 ######################################################################
 p6df::modules::figma::aliases::init() {
   local _module="$1"
@@ -17,6 +29,12 @@ p6df::modules::figma::aliases::init() {
 }
 
 ######################################################################
+#<
+#
+# Function: p6df::modules::figma::langs()
+#
+#>
+######################################################################
 p6df::modules::figma::langs() {
 
   p6_js_npm_global_install "@figma-export/cli"
@@ -24,6 +42,12 @@ p6df::modules::figma::langs() {
   p6_return_void
 }
 
+######################################################################
+#<
+#
+# Function: p6df::modules::figma::mcp()
+#
+#>
 ######################################################################
 p6df::modules::figma::mcp() {
 
@@ -36,35 +60,6 @@ p6df::modules::figma::mcp() {
 }
 
 ######################################################################
-p6df::modules::figma::profile::mod() {
-
-  p6_return_words 'figma' '$FIGMA_API_TOKEN'
-}
-######################################################################
-#<
-#
-# Function: p6df::modules::figma::deps()
-#
-#>
-######################################################################
-#<
-#
-# Function: p6df::modules::figma::langs()
-#
-#>
-######################################################################
-#<
-#
-# Function: p6df::modules::figma::mcp()
-#
-#>
-######################################################################
-#<
-#
-# Function: p6df::modules::figma::aliases::init()
-#
-#>
-######################################################################
 #<
 #
 # Function: words figma $FIGMA_API_TOKEN = p6df::modules::figma::profile::mod()
@@ -74,3 +69,8 @@ p6df::modules::figma::profile::mod() {
 #
 #  Environment:	 FIGMA_API_TOKEN
 #>
+######################################################################
+p6df::modules::figma::profile::mod() {
+
+  p6_return_words 'figma' '$FIGMA_API_TOKEN'
+}
